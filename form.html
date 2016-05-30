@@ -1,0 +1,80 @@
+
+			
+		<form action="process.php" method="POST">
+		
+			<input type="hidden" name="formID" value="bookingform">
+			<input type="hidden" name="redirect_to" value="">
+			
+			<fieldset>
+				<legend>Personal details: </legend>
+				<label for="name">Username: </label> <input type="text" name="username" id="name" required autofocus placeholder="Your username" pattern="[a-zA-Z]{3,}" title="Please enter in more than three letters">
+				<label for="email">Email: </label> <input type="text" name="email" id="email" required placeholder="Your Email" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" title="Please enter in a valid e-mail address">
+				<label for="phone">Phone: </label> <input type="tel" name="phone" id="phone" required placeholder="Please enter in your phone number" pattern="[0-9]{4} [0-9]{3} [0-9]{3}" title="Please enter in a phone number in this format: #### ### ###">
+				<select name="country" required>
+					<option value="">Select one</option>
+					<option value="AUS">Australia(AUS)</option>
+					<option value="BAN">Bangladesh(BGD)</option>
+					<option value="UK">United Kingdom(UK</option>
+					<option value="US">United States(US)</option>
+				</select>
+			</fieldset>
+
+			<br>
+
+			<fieldset>
+				<legend>Booking details: </legend>
+				<label for="date">Booking date: </label> <input id="date" type="date" name="date" min="2016-05-17">
+				<label for="numberOfGuests">Number of Guests: </label> <input id="numberOfGuests" type="number" name="numberOfGuests" min="1" max="6">
+				<p>Do you require meals?</p>
+				<label for="yesMeals">Yes: </label> <input id="yesMeals" type="radio" name="meals" value="yesMeals">
+				<label for="noMeals">No: </label> <input id="noMeals" type="radio" name="meals" value="noMeals">
+				<br>
+				<label for="balcony">Do you require a balcony?</label> <input id="balcony" type="checkbox" name="balcony" value="yes" checked>
+				<br>
+				<input type="submit" value="Submit">
+			</fieldset>
+			<div>
+				<!-- Input For Add Values To Database-->
+				<input type="submit" name="insert" value="Add">
+
+				<!-- Input For Edit Values -->
+				<input type="submit" name="update" value="Update">
+
+				<!-- Input For Clear Values -->
+				<input type="submit" name="delete" value="Delete">
+
+				 <!-- Input For Find Values With The given ID -->
+				<input type="submit" name="search" value="Find">
+			</div>
+
+		</form>
+
+<?php
+
+// Search
+
+if(isset($_POST['search']))
+{
+    $data = $keys;
+    
+    $search_Query = 'SELECT * FROM bookingform WHERE username = $data["username"]';
+    
+    $search_Result = mysqli_query($link, $search_Query);
+    
+    if($search_Result)
+    {
+        if(mysqli_num_rows($search_Result))
+        {
+            while($row = mysqli_fetch_array($search_Result))
+            {
+                $username = $row["username"];
+            }
+        }else{
+            echo 'No Data For This name';
+        }
+    }else{
+        echo 'Result Error';
+    }
+}
+
+?>

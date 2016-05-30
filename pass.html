@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Simple Popup Boxes</title>
+
+		<script type="text/javascript">
+			<!--
+			    function toggle_visibility(id) {
+			       var e = document.getElementById(id);
+			       if(e.style.display == 'block')
+			          e.style.display = 'none';
+			       else
+			          e.style.display = 'block';
+			    }
+			//-->
+		</script>
+
+		<style type="text/css">
+
+			#popupBoxOnePosition{
+				top: 0; left: 0; position: fixed; width: 100%; height: 120%;
+				background-color: rgba(0,0,0,0.7); display: none;
+			}
+			#popupBoxTwoPosition{
+				top: 0; left: 0; position: fixed; width: 100%; height: 120%;
+				background-color: rgba(0,0,0,0.7); display: none;
+			}#popupBoxThreePosition{
+				top: 0; left: 0; position: fixed; width: 100%; height: 120%;
+				background-color: rgba(0,0,0,0.7); display: none;
+			}
+			.popupBoxWrapper{
+				width: 550px; margin: 50px auto; text-align: left;
+			}
+			.popupBoxContent{
+				background-color: #FFF; padding: 15px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="popupBoxOnePosition">
+			<div class="popupBoxWrapper">
+				<div class="popupBoxContent">
+					<h3>Popup Box 1</h3>
+					<p>You are currently viewing popup box 1.</p>
+					<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">here</a> to close popup box one.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="popupBoxTwoPosition">
+			<div class="popupBoxWrapper">
+				<div class="popupBoxContent">
+					<h3>Popup Box 2</h3>
+					<p>You are currently viewing popup box 2.</p>
+					<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition');">here</a> to close popup box two.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="popupBoxThreePosition">
+			<div class="popupBoxWrapper">
+				<div class="popupBoxContent">
+					<h3>Popup Box 3</h3>
+					<p>You are currently viewing popup box 3.</p>
+					<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxThreePosition');">here</a> to close popup box three.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="wrapper">
+
+			<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">here</a> to see popup box one.</p>
+			<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxTwoPosition');">here</a> to see popup box two.</p>
+			<p>Click <a href="javascript:void(0)" onclick="toggle_visibility('popupBoxThreePosition');">here</a> to see popup box three.</p>
+
+		</div><!-- wrapper end -->
+
+	</body>
+
+</html>
